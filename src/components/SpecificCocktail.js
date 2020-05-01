@@ -131,7 +131,13 @@ class SpecificDrink extends Component {
       </div>
     )
 
-    return <div>{showInfo}</div>
+    return (
+      <div>
+        <h1>Cocktail By Name</h1>
+
+        {showInfo}
+      </div>
+    )
   }
 }
 

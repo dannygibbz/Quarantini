@@ -109,13 +109,13 @@ class Random extends Component {
 
     return (
       <div>
-        <h1>If you're feeling adventurous, click the randomizer below.</h1>
+        <h1>Cocktail By Chance</h1>
         <form>
           <Button type="primary" onClick={this.randomSubmit}>
             Surprise Me!
           </Button>
         </form>
-        <div>{showInfo}</div>
+        <div style={{ paddingTop: "15px" }}>{showInfo}</div>
       </div>
     )
   }

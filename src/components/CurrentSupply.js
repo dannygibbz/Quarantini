@@ -45,6 +45,7 @@ class BySpirit extends Component {
 
     return (
       <div>
+        <h1>Cocktail By Spirit</h1>
         <form onSubmit={this.handleSubmit}>
           <Search
             value={this.state.input}

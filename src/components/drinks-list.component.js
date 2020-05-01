@@ -70,6 +70,7 @@ export default class DrinksList extends Component {
           </thead>
           <tbody>{this.drinkList()}</tbody>
         </table>
+        <hr />
       </div>
     )
   }
