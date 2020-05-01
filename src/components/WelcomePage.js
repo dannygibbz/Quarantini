@@ -6,7 +6,7 @@ function WelcomePage() {
     <div>
       <h1>Welcome to Quarantini.</h1>
       <h5>We help you choose what to drink when you're stuck at home.</h5>
-      <div style={{ paddingTop: "40px" }}>
+      <div style={{ paddingTop: "30px" }}>
         The outside world may be chaotic and uncertain, but in here everything
         is simple and relaxed. You can search refreshing beverages in three
         ways.{" "}
@@ -22,6 +22,11 @@ function WelcomePage() {
       <div style={{ paddingTop: "10px" }}>
         <Link to="/random">Cocktail by Chance</Link>. If you're adventurous and
         up for anything, this page will give you a random cocktail recipe.
+      </div>
+      <div style={{ paddingTop: "15px" }}>
+        You can also <Link to="/user">create a user</Link> profile and{" "}
+        <Link to="/create">create a log</Link> of the cocktails you've tried.
+        Happy sipping!
       </div>
       <div style={{ paddingTop: "40px", display: "flex" }}>
         {" "}
