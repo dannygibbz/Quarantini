@@ -1,9 +1,9 @@
 const router = require("express").Router()
-let Exercise = require("../Models/exercise.models")
+let Drink = require("../Models/drink.models")
 
 router.route("/").get((req, res) => {
-  Exercise.find()
-    .then(exercises => res.json(exercises))
+  Drink.find()
+    .then(drinks => res.json(drinks))
     .catch(err => res.status(400).json("Error: " + err))
 })
 
@@ -12,37 +12,37 @@ router.route("/add").post((req, res) => {
   const description = req.body.description
   const date = Date.parse(req.body.date)
 
-  const newExercise = new Exercise({
+  const newDrink = new Drink({
     username,
     description,
     date,
   })
 
-  newExercise
+  newDrink
     .save()
-    .then(() => res.json("Exercise added!"))
+    .then(() => res.json("Drink added!"))
     .catch(err => res.status(400).json("Error: " + err))
 })
 router.route("/:id").get((req, res) => {
-  Exercise.findById(req.params.id)
-    .then(exercise => res.json(exercise))
+  Drink.findById(req.params.id)
+    .then(drink => res.json(drink))
     .catch(err => res.status(400).json("Error: " + err))
 })
 router.route("/:id").delete((req, res) => {
-  Exercise.findByIdAndDelete(req.params.id)
-    .then(() => res.json("Exercise deleted."))
+  Drink.findByIdAndDelete(req.params.id)
+    .then(() => res.json("Drink deleted."))
     .catch(err => res.status(400).json("Error: " + err))
 })
 router.route("/update/:id").post((req, res) => {
-  Exercise.findById(req.params.id)
-    .then(exercise => {
-      exercise.username = req.body.username
-      exercise.description = req.body.description
-      exercise.date = Date.parse(req.body.date)
+  Drink.findById(req.params.id)
+    .then(drink => {
+      drink.username = req.body.username
+      drink.description = req.body.description
+      drink.date = Date.parse(req.body.date)
 
-      exercise
+      drink
         .save()
-        .then(() => res.json("Exercise updated!"))
+        .then(() => res.json("Drink updated!"))
         .catch(err => res.status(400).json("Error: " + err))
     })
     .catch(err => res.status(400).json("Error: " + err))

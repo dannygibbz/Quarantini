@@ -1,50 +1,35 @@
 import React, { Component } from "react"
+import { message } from "antd"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
 import axios from "axios"
 
-export default class EditExercise extends Component {
+export default class CreateDrink extends Component {
   constructor(props) {
     super(props)
 
     this.onChangeUsername = this.onChangeUsername.bind(this)
     this.onChangeDescription = this.onChangeDescription.bind(this)
-
     this.onChangeDate = this.onChangeDate.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
 
     this.state = {
       username: "",
       description: "",
-
       date: new Date(),
       users: [],
     }
   }
 
   componentDidMount() {
-    axios
-      .get("http://localhost:5000/exercises/" + this.props.match.params.id)
-      .then(response => {
+    axios.get("http://localhost:5000/users/").then(response => {
+      if (response.data.length > 0) {
         this.setState({
-          username: response.data.username,
-          description: response.data.description,
-
-          date: new Date(response.data.date),
+          users: response.data.map(user => user.username),
+          username: response.data[0].username,
         })
-      })
-      .catch(function(error) {
-        console.log(error)
-      })
-
-    axios
-      .get("http://localhost:5000/users/")
-      .then(response => {
-        this.setState({ users: response.data.map(user => user.username) })
-      })
-      .catch(error => {
-        console.log(error)
-      })
+      }
+    })
   }
 
   onChangeUsername(e) {
@@ -68,33 +53,36 @@ export default class EditExercise extends Component {
   onSubmit(e) {
     e.preventDefault()
 
-    const exercise = {
+    const drinks = {
       username: this.state.username,
       description: this.state.description,
       date: this.state.date,
     }
 
-    console.log(exercise)
-
+    console.log(drinks)
     axios
-      .post(
-        "http://localhost:5000/exercises/update/" + this.props.match.params.id,
-        exercise
-      )
-      .then(res => console.log(res.data))
-
-    window.location = "/"
+      .post("http://localhost:5000/drinks/add", drinks)
+      .then(res => {
+        console.log(res.data)
+      })
+      .then(res => {
+        message.success("Drink Successfully Added", 2)
+      })
+      .catch(e => {
+        message.error("Can't Create Drink")
+      })
   }
 
   render() {
     return (
       <div>
-        <h3>Edit Exercise Log</h3>
+        <h3>Create New Drink Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Username: </label>
             <select
               ref="userInput"
+              required
               className="form-control"
               value={this.state.username}
               onChange={this.onChangeUsername}>
@@ -120,16 +108,18 @@ export default class EditExercise extends Component {
 
           <div className="form-group">
             <label>Date: </label>
-            <DatePicker
-              selected={this.state.date}
-              onChange={this.onChangeDate}
-            />
+            <div>
+              <DatePicker
+                selected={this.state.date}
+                onChange={this.onChangeDate}
+              />
+            </div>
           </div>
 
           <div className="form-group">
             <input
               type="submit"
-              value="Edit Exercise Log"
+              value="Create Drink Log"
               className="btn btn-primary"
             />
           </div>

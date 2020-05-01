@@ -4,13 +4,14 @@ import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import Navbar from "./components/navbar.component"
-import ExercisesList from "./components/exercises-list.component"
-import EditExercise from "./components/edit-exercise.component"
-import CreateExercise from "./components/create-exercise.component"
+import DrinksList from "./components/drinks-list.component"
+import EditDrink from "./components/edit-drink.component"
+import CreateDrink from "./components/create-drink.component"
 import CreateUser from "./components/create-user.component"
 import SpecificCocktail from "./components/SpecificCocktail"
 import RandomCocktail from "./components/RandomCocktail"
 import WelcomePage from "./components/WelcomePage"
+import CurrentSupply from "./components/CurrentSupply"
 
 function App() {
   return (
@@ -19,11 +20,12 @@ function App() {
         <Navbar />
         <br />
         <Route path="/welcome" component={WelcomePage} />
-        <Route path="/" exact component={ExercisesList} />
+        <Route path="/" exact component={DrinksList} />
         <Route path="/specific" component={SpecificCocktail} />
         <Route path="/random" component={RandomCocktail} />
-        <Route path="/edit/:id" component={EditExercise} />
-        <Route path="/create" component={CreateExercise} />
+        <Route path="/current" component={CurrentSupply} />
+        <Route path="/edit/:id" component={EditDrink} />
+        <Route path="/create" component={CreateDrink} />
         <Route path="/user" component={CreateUser} />
       </div>
     </Router>

@@ -12,12 +12,17 @@ export default class Navbar extends Component {
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
               <Link to="/specific" className="nav-link">
-                Specific Cocktail
+                Cocktail By Name
+              </Link>
+            </li>
+            <li className="navbar-item">
+              <Link to="/current" className="nav-link">
+                Cocktail By Spirit
               </Link>
             </li>
             <li className="navbar-item">
               <Link to="/random" className="nav-link">
-                Random Cocktail
+                Cocktail by Chance
               </Link>
             </li>
             <li className="navbar-item">
