@@ -5,9 +5,7 @@ function WelcomePage() {
   return (
     <div>
       <h1>Welcome to Quarantini</h1>
-      <h5>
-        We help you pick what to drink when you're stuck at home. It's Simple.
-      </h5>
+      <h5>We help you choose what to drink when you're stuck at home.</h5>
 
       <div style={{ paddingTop: "15px" }}>
         <Link to="/specific">Cocktail By Name</Link>. If you know the name of a
