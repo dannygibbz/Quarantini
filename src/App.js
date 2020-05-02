@@ -12,6 +12,7 @@ import SpecificCocktail from "./components/SpecificCocktail"
 import RandomCocktail from "./components/RandomCocktail"
 import WelcomePage from "./components/WelcomePage"
 import CurrentSupply from "./components/CurrentSupply"
+import Foot from "./components/Foot"
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/edit/:id" component={EditDrink} />
         <Route path="/create" component={CreateDrink} />
         <Route path="/user" component={CreateUser} />
+        <Foot />
       </div>
     </Router>
   )
