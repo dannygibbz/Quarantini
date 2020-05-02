@@ -18,7 +18,7 @@ export default class CreateUsers extends Component {
       name: e.target.value,
     })
   }
- 
+
   onChangeUsername = e => {
     this.setState({
       username: e.target.value,
@@ -59,7 +59,6 @@ export default class CreateUsers extends Component {
       username: "",
       email: "",
       password: "",
-
     })
   }
 
@@ -97,7 +96,7 @@ export default class CreateUsers extends Component {
 
             <label>Password: </label>
             <input
-              type="text"
+              type="password"
               required
               className="form-control"
               value={this.state.password}

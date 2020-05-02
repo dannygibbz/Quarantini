@@ -3,7 +3,6 @@ import React, { Component } from "react"
 import { Input } from "antd"
 const { Search } = Input
 
-// import { Result } from "antd"
 class BySpirit extends Component {
   constructor(props) {
     super(props)
@@ -35,12 +34,9 @@ class BySpirit extends Component {
       .catch(e => console.log("error", e))
   }
 
-  //   if (array === undefined || array.length == 0) {
-
-  // }
-
   render() {
     console.log(this.state.drinks)
+
     let drinkUp = this.state.drinks.map(drink => {
       return <FindDrink id={drink.idDrink} key={drink.idDrink} />
     })

@@ -1,8 +1,8 @@
 import React from "react"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import "./App.css"
+
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Layout } from "antd"
 import Navbar from "./components/navbar.component"
 import DrinksList from "./components/drinks-list.component"
 import EditDrink from "./components/edit-drink.component"
@@ -17,7 +17,7 @@ import Foot from "./components/Foot"
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div className="container heightMinusFooter">
         <Navbar />
         <br />
         <Route path="/welcome" component={WelcomePage} />
@@ -28,6 +28,8 @@ function App() {
         <Route path="/edit/:id" component={EditDrink} />
         <Route path="/create" component={CreateDrink} />
         <Route path="/user" component={CreateUser} />
+      </div>
+      <div className="container">
         <Foot />
       </div>
     </Router>

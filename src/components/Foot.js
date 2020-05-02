@@ -8,6 +8,7 @@ function Foot() {
     <Layout
       style={{
         marginTop: "35px",
+        height: "100%",
       }}>
       <Footer
         style={{
@@ -15,9 +16,6 @@ function Foot() {
           backgroundColor: "#343A40",
           color: "white",
           textAlign: "center",
-          bottom: 0,
-          width: "100%",
-          height: "40px",
         }}>
         Designed by Dioris, Donavan, and Dan. 2020 All rights reserved.
       </Footer>

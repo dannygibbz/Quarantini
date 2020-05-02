@@ -3,3 +3,7 @@
 .App {
   text-align: center;
 }
+.heightMinusFooter {
+  min-height: calc(100vh - 85px);
+  width: 100%;
+}

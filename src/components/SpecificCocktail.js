@@ -87,7 +87,6 @@ class SpecificDrink extends Component {
           value={this.state.input}
           onChange={this.onChange}
           placeholder="Type cocktail name here. Ex: Alabama Slammer"
-          onSearch={value => console.log(value)}
           style={{ width: "100%" }}
         />
       </form>
