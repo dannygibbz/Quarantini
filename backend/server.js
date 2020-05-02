@@ -19,10 +19,11 @@ connection.once("open", () => {
 
 const drinksRouter = require("./Routes/drinks")
 const usersRouter = require("./Routes/users")
+const authRouter = require("./Routes/auth")
 
 app.use("/drinks", drinksRouter)
 app.use("/users", usersRouter)
-app.use("/auth", usersRouter)
+app.use("/auth", authRouter)
 
 
 

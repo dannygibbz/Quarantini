@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const config = require("config");
 const jwt = require("jsonwebtoken");
 
 const User = require("../Models/user.model");
@@ -32,16 +31,16 @@ router.post(
 
     try {
       // find user with that email
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ email: email });
       // if that email does not match with the user send a error message.
       if (!user) {
-        return res.status(400).json({ msg: "Invalid Credentials" });
+        return res.status(400).json({ msg: "Invaild Credentials" });
       }
       // if there is a user we want to compare the password and see if it matches.
-      const isMatch = await bcrypt.compare(password, user.password);
+      const isMatch = await bcrypt.compare(password, user.password );
       // if the user password does not match the one that is in the databbase send back an error message.
       if (!isMatch) {
-        return res.status(400).json({ msg: "Invalid Credentials" });
+        return res.status(400).json({ msg: "Invalid Password" });
       }
 
       // if the password matches the users email we return the token
@@ -51,22 +50,34 @@ router.post(
         },
       };
 
-      jwt.sign(
-        payload,
-        config.get(process.env.JWT_SECRET),
-        {
-          expiresIn: 36000,
-        },
-        (err, token) => {
-          if (err) throw err;
-          res.json({ token });
-        }
-      );
-    } catch (err) {
+  //     jwt.sign(
+  //       (payload,process.env.JWT_SECRET,
+  //       {
+  //         expiresIn: 36000,
+  //       },
+  //       (err, token) => {
+  //         if (err) throw err;
+  //         res.json({ token });
+  //       }
+  //     );
+  //   } catch (err) {
+  //     console.error(err.message);
+  //     res.status(500).send("server error");
+  //   }
+  // }
+// );
+jwt.sign(payload,process.env.JWT_SECRET, {
+  expiresIn: 36000
+}, (err, token)=>{
+  if(err) throw err;
+  res.json({ token });
+})
+
+}catch (err) {
       console.error(err.message);
       res.status(500).send("server error");
     }
-  }
-);
+  })
+
 
 module.exports = router;

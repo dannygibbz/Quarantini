@@ -2,6 +2,7 @@ const router = require("express").Router()
 let User = require("../Models/user.model");
 const { check, validationResult } = require("express-validator");
 const jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs")
 
 
 
@@ -25,15 +26,24 @@ router.route("/add").post(
     if(!errors.isEmpty()){
         return res.status(400).json({ errors: errors.array()})
     }
+  const name = req.body.name
   const username = req.body.username
+  const email = req.body.email
 
-  const newUser = new User({ username })
+  const salt = await bcrypt.genSalt(10);
+
+  const password = await bcrypt.hash(req.body.password, salt);
+
+
+  const newUser = new User({ username: username, name: name, email: email, password: password })
+  
 
   newUser
     .save()
     .then((data) => {  const payload = {
       user: {
-        id: data.id  
+        id: data.id
+          
       }
   }
 
