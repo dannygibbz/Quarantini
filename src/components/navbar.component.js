@@ -1,10 +1,12 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
+import logo from './img/quarantini.jpg'
 
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+      <nav className="navbar navbar-dark bg-dark navbar-expand-lg" >
+        <img src={logo} alt="Logo" height="100px" />
         <Link to="/welcome" className="navbar-brand">
           Quarantini
         </Link>
