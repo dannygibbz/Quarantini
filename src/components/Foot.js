@@ -19,7 +19,7 @@ function Foot() {
           width: "100%",
           height: "40px",
         }}>
-        Designed by Dioris, Donovan, and Dan. 2020 All rights reserved.
+        Designed by Dioris, Donavan, and Dan. 2020 All rights reserved.
       </Footer>
     </Layout>
   )
