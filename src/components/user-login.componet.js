@@ -35,6 +35,7 @@ export default class LoginUsers extends Component {
       .post("http://localhost:5000/auth", user)
       .then((res) => {
         message.success("Your Logged in", 2);
+        localStorage.setItem('currentUser', res.data.token);
       })
       .catch((e) => {
         message.error("Try Agin");
