@@ -43,12 +43,12 @@ export default class CreateUsers extends Component {
       email: this.state.email,
       password: this.state.password,
     }
-    console.log(user)
 
     axios
       .post("http://localhost:5000/users/add", user)
       .then(res => {
         message.success("User added", 2)
+        localStorage.setItem('currentUser', res.data.token)
       })
       .catch(e => {
         message.error("Can't create user")

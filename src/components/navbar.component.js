@@ -3,6 +3,11 @@ import { Link } from "react-router-dom"
 
 export default class Navbar extends Component {
   render() {
+    const userSignedIn = localStorage.getItem('currentUser');
+    
+    // set currentUser on global state somehow, so it can be referenced here
+    //currentUser
+    
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <Link to="/welcome" className="navbar-brand">
@@ -35,11 +40,21 @@ export default class Navbar extends Component {
                 Saved Drinks
               </Link>
             </li>
-            <li className="navbar-item">
-              <Link to="/user" className="nav-link">
-                Create User
-              </Link>
-            </li>
+            { !userSignedIn &&
+              <span>
+                <li className="navbar-item">
+                  <Link to="/user" className="nav-link">
+                    Create User
+                  </Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </li>
+              </span>
+            }
+            
           </ul>
         </div>
       </nav>
