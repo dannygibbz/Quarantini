@@ -99,6 +99,7 @@ export default class CreateUsers extends Component {
               type="password"
               required
               className="form-control"
+              placeholder="mininum of 6 or more characters"
               value={this.state.password}
               onChange={this.onChangePassword}
             />
