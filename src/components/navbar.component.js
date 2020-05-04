@@ -40,7 +40,8 @@ export default class Navbar extends Component {
                 Saved Drinks
               </Link>
             </li>
-            { !userSignedIn &&
+ locallogin
+           { !userSignedIn &&
               <span>
                 <li className="navbar-item">
                   <Link to="/user" className="nav-link">
@@ -61,3 +62,4 @@ export default class Navbar extends Component {
     )
   }
 }
+
