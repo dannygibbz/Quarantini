@@ -2,34 +2,22 @@ import React, { Component } from "react"
 import { message } from "antd"
 import axios from "axios"
 
-export default class CreateUsers extends Component {
+export default class LoginUsers extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
-      username: "",
       email: "",
       password: "",
     }
   }
 
-  onChangeName = e => {
-    this.setState({
-      name: e.target.value,
-    })
-  }
 
-  onChangeUsername = e => {
-    this.setState({
-      username: e.target.value,
-    })
-  }
-  onChangeEmail = e => {
+  inputEmail = e => {
     this.setState({
       email: e.target.value,
     })
   }
-  onChangePassword = e => {
+  inputPassword = e => {
     this.setState({
       password: e.target.value,
     })
@@ -38,25 +26,21 @@ export default class CreateUsers extends Component {
     e.preventDefault()
 
     const user = {
-      name: this.state.name,
-      username: this.state.username,
       email: this.state.email,
       password: this.state.password,
     }
+    console.log(user)
 
     axios
-      .post("http://localhost:5000/users/add", user)
+      .post("http://localhost:5000/auth", user)
       .then(res => {
-        message.success("User added", 2)
-        localStorage.setItem('currentUser', res.data.token)
+        message.success("Your Logged In", 2)
       })
       .catch(e => {
-        message.error("Can't create user")
+        message.error("Try Again")
       })
 
     this.setState({
-      name: "",
-      username: "",
       email: "",
       password: "",
     })
@@ -68,22 +52,6 @@ export default class CreateUsers extends Component {
         <h3>Create New User</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Name: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.name}
-              onChange={this.onChangeName}
-            />
-            <label>Username: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}
-            />
 
             <label>Email: </label>
             <input
@@ -91,7 +59,7 @@ export default class CreateUsers extends Component {
               required
               className="form-control"
               value={this.state.email}
-              onChange={this.onChangeEmail}
+              onChange={this.inputEmail}
             />
 
             <label>Password: </label>
@@ -100,13 +68,13 @@ export default class CreateUsers extends Component {
               required
               className="form-control"
               value={this.state.password}
-              onChange={this.onChangePassword}
+              onChange={this.inputPassword}
             />
           </div>
           <div className="form-group">
             <input
               type="submit"
-              value="Create User"
+              value="Login"
               className="btn btn-primary"
             />
           </div>
