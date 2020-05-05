@@ -101,7 +101,7 @@ class SpecificDrink extends Component {
             style={{ width: "100% " }}
           />
         </form>
-        <div>
+        <div style={{ marginTop: "10px" }}>
           <p>
             {" "}
             <b>Cocktail Name:</b> {name}
@@ -133,7 +133,6 @@ class SpecificDrink extends Component {
     return (
       <div>
         <h1>Cocktail By Name</h1>
-
         {showInfo}
       </div>
     )

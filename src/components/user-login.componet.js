@@ -1,51 +1,53 @@
-import React, { Component } from "react";
-import { message } from "antd";
-import axios from "axios";
+import React, { Component } from "react"
+import { message } from "antd"
+import { withRouter } from "react-router"
+import axios from "axios"
 
-export default class LoginUsers extends Component {
+class LoginUsers extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       email: "",
       password: "",
-    };
+    }
   }
 
-  inputEmail = (e) => {
+  inputEmail = e => {
     this.setState({
       email: e.target.value,
-    });
-  };
-  inputPassword = (e) => {
+    })
+  }
+  inputPassword = e => {
     this.setState({
       password: e.target.value,
-    });
-  };
+    })
+  }
 
-  onSubmit = (e) => {
-    e.preventDefault();
+  onSubmit = e => {
+    e.preventDefault()
 
     const user = {
       email: this.state.email,
       password: this.state.password,
-    };
-    console.log(user);
+    }
+    console.log(user)
 
     axios
       .post("http://localhost:5000/auth", user)
-      .then((res) => {
-        message.success("Your Logged in", 2);
-        localStorage.setItem('currentUser', res.data.token);
+      .then(res => {
+        message.success("Logged In Successfully", 2)
+        localStorage.setItem("currentUser", res.data.token)
+        this.props.history.push("/welcome")
       })
-      .catch((e) => {
-        message.error("Try Agin");
-      });
+      .catch(e => {
+        message.error("Email and/or password are incorrect. Please retry.")
+      })
 
     this.setState({
       email: "",
       password: "",
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -76,6 +78,8 @@ export default class LoginUsers extends Component {
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
+
+export default withRouter(LoginUsers)

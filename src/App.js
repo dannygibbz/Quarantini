@@ -30,7 +30,6 @@ function App() {
         <Route path="/create" component={CreateDrink} />
         <Route path="/user" component={CreateUser} />
         <Route path="/login" component={LoginUsers} />
-
       </div>
       <div className="container">
         <Foot />
