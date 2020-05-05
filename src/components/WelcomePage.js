@@ -28,7 +28,7 @@ function WelcomePage() {
         <Link to="/create">create a log</Link> of the cocktails you've tried.
         Happy sipping!
       </div>
-      <div style={{ paddingTop: "40px", display: "flex" }}>
+      <div style={{ paddingTop: "40px", display: "flex", flexWrap: "wrap" }}>
         {" "}
         <img
           src={
@@ -39,12 +39,14 @@ function WelcomePage() {
             height: "150px",
             width: "150px",
             marginRight: "10px",
-          }}></img>
+          }}
+          resizeMode="contain"></img>
         <img
           src={
             "https://www.thecocktaildb.com/images/media/drink/vqws6t1504888857.jpg/preview"
           }
           alt="cocktail"
+          resizeMode="contain"
           style={{
             height: "150px",
             width: "150px",
@@ -55,6 +57,7 @@ function WelcomePage() {
             "https://www.thecocktaildb.com/images/media/drink/9uqt9p1576519019.jpg/preview"
           }
           alt="cocktail"
+          resizeMode="contain"
           style={{
             height: "150px",
             width: "150px",
@@ -65,6 +68,7 @@ function WelcomePage() {
             "https://www.thecocktaildb.com/images/media/drink/wx7hsg1504370510.jpg/preview"
           }
           alt="cocktail"
+          resizeMode="contain"
           style={{
             height: "150px",
             width: "150px",
@@ -75,6 +79,7 @@ function WelcomePage() {
             "https://www.thecocktaildb.com/images/media/drink/rxtqps1478251029.jpg/preview"
           }
           alt="cocktail"
+          resizeMode="contain"
           style={{
             height: "150px",
             width: "150px",
@@ -85,16 +90,7 @@ function WelcomePage() {
             "https://www.thecocktaildb.com/images/media/drink/3pylqc1504370988.jpg/preview"
           }
           alt="cocktail"
-          style={{
-            height: "150px",
-            width: "150px",
-            marginRight: "10px",
-          }}></img>
-        <img
-          src={
-            "https://www.thecocktaildb.com/images/media/drink/usuuur1439906797.jpg/preview"
-          }
-          alt="cocktail"
+          resizeMode="contain"
           style={{
             height: "150px",
             width: "150px",
