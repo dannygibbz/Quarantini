@@ -26,12 +26,19 @@ class BySpirit extends Component {
       .then(result =>
         this.setState({
           input: "",
+          errorMessage: "",
           drinks: result.drinks,
           title: result.drinks.strDrink,
           picture: result.drinks.strDrinkThumb + "/preview",
         })
       )
-      .catch(e => console.log("error", e))
+      .catch(e => {
+        console.log("error", e)
+        this.setState({
+          errorMessage:
+            "Sorry, nothing found under that name. Please try again.",
+        })
+      })
   }
 
   render() {
@@ -41,9 +48,14 @@ class BySpirit extends Component {
       return <FindDrink id={drink.idDrink} key={drink.idDrink} />
     })
 
+    let notFound = this.state.errorMessage ? (
+      <h2>{this.state.errorMessage}</h2>
+    ) : null
+
     return (
       <div>
         <h1>Cocktail By Spirit</h1>
+
         <form onSubmit={this.handleSubmit}>
           <Search
             value={this.state.input}
@@ -54,6 +66,7 @@ class BySpirit extends Component {
           />
         </form>
         <p>{this.state.title}</p>
+        {notFound}
         {drinkUp}
       </div>
     )

@@ -19,9 +19,10 @@ class SpecificDrink extends Component {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.state.input}`
     fetch(url)
       .then(response => response.json())
-      .then(data =>
+      .then(data => {
         this.setState({
           input: "",
+          errorMessage: "",
           visible: true,
           drinkName: data.drinks[0].strDrink,
           instructions: data.drinks[0].strInstructions,
@@ -39,9 +40,15 @@ class SpecificDrink extends Component {
           measurement5: data.drinks[0].strMeasure5,
           measurement6: data.drinks[0].strMeasure6,
           picture: data.drinks[0].strDrinkThumb + "/preview",
-        })(console.log(data))
-      )
-      .catch(e => console.log("error", e))
+        })
+      })
+      .catch(e => {
+        console.log("error", e)
+        this.setState({
+          errorMessage:
+            "Sorry, nothing found under that name. Please try again.",
+        })
+      })
   }
 
   render() {
@@ -129,11 +136,16 @@ class SpecificDrink extends Component {
         </div>
       </div>
     )
+    let notFound = this.state.errorMessage ? (
+      <h2>{this.state.errorMessage}</h2>
+    ) : null
 
     return (
       <div>
         <h1>Cocktail By Name</h1>
+
         {showInfo}
+        {notFound}
       </div>
     )
   }
