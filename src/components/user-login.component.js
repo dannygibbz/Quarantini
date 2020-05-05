@@ -66,7 +66,7 @@ class LoginUsers extends Component {
 
             <label>Password: </label>
             <input
-              type="text"
+              type="password"
               required
               className="form-control"
               value={this.state.password}
