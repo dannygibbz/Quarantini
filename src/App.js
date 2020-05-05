@@ -13,7 +13,7 @@ import RandomCocktail from "./components/RandomCocktail"
 import WelcomePage from "./components/WelcomePage"
 import CurrentSupply from "./components/CurrentSupply"
 import Foot from "./components/Foot"
-import LoginUsers from "./components/user-login.componet"
+import LoginUsers from "./components/user-login.component"
 
 function App() {
   return (

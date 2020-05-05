@@ -1,10 +1,11 @@
 import React, { Component } from "react"
 import { message, Select } from "antd"
 import DatePicker from "react-datepicker"
+import { withRouter } from "react-router"
 import "react-datepicker/dist/react-datepicker.css"
 import axios from "axios"
 
-export default class CreateDrink extends Component {
+class CreateDrink extends Component {
   constructor(props) {
     super(props)
 
@@ -67,6 +68,7 @@ export default class CreateDrink extends Component {
       })
       .then(res => {
         message.success("Drink Successfully Added", 2)
+        this.props.history.push("/")
       })
       .catch(e => {
         message.error("Can't Create Drink")
@@ -128,3 +130,5 @@ export default class CreateDrink extends Component {
     )
   }
 }
+
+export default withRouter(CreateDrink)
