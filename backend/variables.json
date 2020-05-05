@@ -1,4 +1,4 @@
 {
-  "ATLAS_URI": "mongodb://dgibbonswebdev:dangib1990@ds139470.mlab.com:39470/heroku_kwf3nt7g",
+  "ATLAS_URI": "mongodb://dgibbonswebdev@gmail.com:dangib1990@ds139470.mlab.com:39470/heroku_kwf3nt7g",
   "JWT_SECRET": "KEY"
 }
