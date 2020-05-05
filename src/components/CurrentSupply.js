@@ -49,7 +49,7 @@ class BySpirit extends Component {
     })
 
     let notFound = this.state.errorMessage ? (
-      <h2>{this.state.errorMessage}</h2>
+      <h3 style={{ color: "red" }}>{this.state.errorMessage}</h3>
     ) : null
 
     return (
