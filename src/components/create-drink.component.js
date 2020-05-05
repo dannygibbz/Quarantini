@@ -23,7 +23,7 @@ class CreateDrink extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/users/").then(response => {
+    axios.get("/users/").then(response => {
       if (response.data.length > 0) {
         this.setState({
           users: response.data.map(user => user.username),
@@ -62,7 +62,7 @@ class CreateDrink extends Component {
 
     console.log(drinks)
     axios
-      .post("http://localhost:5000/drinks/add", drinks)
+      .post("/drinks/add", drinks)
       .then(res => {
         console.log(res.data)
       })

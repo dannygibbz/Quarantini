@@ -18,10 +18,12 @@
   },
   "scripts": {
     "start": "node backend/server.js",
-    "build": "npm run build && serve -s build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+    "install-backend": "cd backend && npm install && cd .. ",
+    "heroku-build": "npm run install-backend && npm install && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run heroku-build"
   },
   "engines": {
     "node": "10.16.0"

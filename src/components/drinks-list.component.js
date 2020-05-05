@@ -28,7 +28,7 @@ export default class DrinksList extends Component {
   }
   componentDidMount() {
     axios
-      .get("http://localhost:5000/drinks/")
+      .get("/drinks")
       .then(response => {
         this.setState({ drinks: response.data })
       })
@@ -37,9 +37,7 @@ export default class DrinksList extends Component {
       })
   }
   deleteDrink(id) {
-    axios
-      .delete("http://localhost:5000/drinks/" + id)
-      .then(res => console.log(res.data))
+    axios.delete("/drinks/" + id).then(res => console.log(res.data))
     this.setState({
       drinks: this.state.drinks.filter(el => el._id !== id),
     })

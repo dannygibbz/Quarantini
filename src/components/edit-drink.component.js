@@ -24,7 +24,7 @@ export default class EditDrink extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/drinks/" + this.props.match.params.id)
+      .get("/drinks/" + this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -38,7 +38,7 @@ export default class EditDrink extends Component {
       })
 
     axios
-      .get("http://localhost:5000/users/")
+      .get("/users/")
       .then(response => {
         this.setState({ users: response.data.map(user => user.username) })
       })
@@ -77,10 +77,7 @@ export default class EditDrink extends Component {
     console.log(drink)
 
     axios
-      .post(
-        "http://localhost:5000/drinks/update/" + this.props.match.params.id,
-        drink
-      )
+      .post("/drinks/update/" + this.props.match.params.id, drink)
       .then(res => console.log(res.data))
 
     window.location = "/"

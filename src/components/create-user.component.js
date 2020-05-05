@@ -45,10 +45,10 @@ export default class CreateUsers extends Component {
     }
 
     axios
-      .post("http://localhost:5000/users/add", user)
+      .post("/users/add", user)
       .then(res => {
         message.success("User added", 2)
-        localStorage.setItem('currentUser', res.data.token)
+        localStorage.setItem("currentUser", res.data.token)
       })
       .catch(e => {
         message.error("Can't create user")

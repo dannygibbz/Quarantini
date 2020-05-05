@@ -33,7 +33,7 @@ class LoginUsers extends Component {
     console.log(user)
 
     axios
-      .post("http://localhost:5000/auth", user)
+      .post("/auth", user)
       .then(res => {
         message.success("Logged In Successfully", 2)
         localStorage.setItem("currentUser", res.data.token)
