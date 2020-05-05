@@ -1,4 +1,4 @@
 {
-  "ATLAS_URI": "mongodb+srv://dgibbons:dgibbons@cluster0-gamvq.mongodb.net/test",
+  "ATLAS_URI": "mongodb+srv://dgibbons:dgibbons@cluster0-gamvq.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&ssl=true",
   "JWT_SECRET": "KEY"
 }

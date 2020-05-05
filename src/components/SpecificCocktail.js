@@ -43,7 +43,6 @@ class SpecificDrink extends Component {
         })
       })
       .catch(e => {
-        console.log("error", e)
         this.setState({
           errorMessage:
             "Sorry, nothing found under that name. Please try again.",
