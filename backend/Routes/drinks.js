@@ -5,6 +5,7 @@ router.route("/").get((req, res) => {
   Drink.find()
     .then(drinks => res.json(drinks))
     .catch(err => res.status(400).json("Error: " + err))
+  res.send("This is a test")
 })
 
 router.route("/add").post((req, res) => {
