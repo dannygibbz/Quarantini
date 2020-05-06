@@ -39,7 +39,7 @@ export default class Navbar extends Component {
               </Link>
             </li>
             <li className="navbar-item">
-              <Link to="/" className="nav-link">
+              <Link to="/saved" className="nav-link">
                 Saved Drinks
               </Link>
             </li>

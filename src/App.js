@@ -24,7 +24,9 @@ function App() {
         <Route path="/welcome">
           <WelcomePage />
         </Route>
-        <Route path="/" exact render={() => <DrinksList />} />
+
+        <Route path="/" exact render={() => <WelcomePage />} />
+        <Route path="/saved" exact render={() => <DrinksList />} />
         <Route path="/specific" render={() => <SpecificCocktail />} />
         <Route path="/random" render={() => <RandomCocktail />} />
         <Route path="/current" render={() => <CurrentSupply />} />
