@@ -24,6 +24,7 @@ export default class DrinksList extends Component {
   constructor(props) {
     super(props)
     this.deleteDrink = this.deleteDrink.bind(this)
+    this.drinkList = this.drinkList.bind(this)
     this.state = { drinks: [] }
   }
   componentDidMount() {
@@ -42,6 +43,7 @@ export default class DrinksList extends Component {
       drinks: this.state.drinks.filter(el => el._id !== id),
     })
   }
+
   drinkList() {
     return this.state.drinks.map(currentdrink => {
       return (
