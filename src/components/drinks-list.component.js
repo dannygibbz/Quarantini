@@ -28,10 +28,11 @@ export default class DrinksList extends Component {
     this.state = { drinks: [] }
   }
   componentDidMount() {
+    const context = this
     axios
       .get("/drinks")
       .then(response => {
-        this.setState({ drinks: response.data })
+        context.setState({ drinks: response.data })
       })
       .catch(error => {
         console.log(error)
