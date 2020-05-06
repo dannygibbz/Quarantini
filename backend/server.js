@@ -10,7 +10,7 @@ const port = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json())
 
-const uri = variables.ATLAS_URI
+const uri = variables.MONGODB_URI
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true })
 const connection = mongoose.connection
 connection.once("open", () => {
