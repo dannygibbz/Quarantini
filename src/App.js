@@ -1,7 +1,6 @@
-import React from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import React, { useState } from "react"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./App.css"
-
 import "bootstrap/dist/css/bootstrap.min.css"
 import Navbar from "./components/navbar.component"
 import DrinksList from "./components/drinks-list.component"
@@ -16,20 +15,26 @@ import Foot from "./components/Foot"
 import LoginUsers from "./components/user-login.component"
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(false)
   return (
     <Router>
       <div className="container heightMinusFooter">
-        <Navbar />
+        <Navbar currentUser={currentUser} />
         <br />
-        <Route path="/welcome" component={WelcomePage} />
-        <Route path="/" exact component={DrinksList} />
-        <Route path="/specific" component={SpecificCocktail} />
-        <Route path="/random" component={RandomCocktail} />
-        <Route path="/current" component={CurrentSupply} />
-        <Route path="/edit/:id" component={EditDrink} />
-        <Route path="/create" component={CreateDrink} />
-        <Route path="/user" component={CreateUser} />
-        <Route path="/login" component={LoginUsers} />
+        <Route path="/welcome">
+          <WelcomePage />
+        </Route>
+        <Route path="/" exact render={() => <DrinksList />} />
+        <Route path="/specific" render={() => <SpecificCocktail />} />
+        <Route path="/random" render={() => <RandomCocktail />} />
+        <Route path="/current" render={() => <CurrentSupply />} />
+        <Route path="/edit/:id" render={() => <EditDrink />} />
+        <Route path="/create" render={() => <CreateDrink />} />
+        <Route path="/user" render={() => <CreateUser />} />
+        <Route
+          path="/login"
+          render={() => <LoginUsers setCurrentUser={setCurrentUser} />}
+        />
       </div>
       <div className="container">
         <Foot />
@@ -37,5 +42,4 @@ function App() {
     </Router>
   )
 }
-
 export default App

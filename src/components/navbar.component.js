@@ -1,19 +1,17 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-
+import Quarantini from "./quarantini.png"
 export default class Navbar extends Component {
   render() {
     const userSignedIn = localStorage.getItem("currentUser")
 
-    // set currentUser on global state somehow, so it can be referenced here
-    //currentUser
-
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/welcome" className="navbar-brand">
-          Quarantini
-        </Link>
         <div className="collpase navbar-collapse">
+          <Link to="/welcome" className="navbar-brand">
+            Quarantini
+          </Link>
+
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
               <Link to="/specific" className="nav-link">
@@ -40,17 +38,20 @@ export default class Navbar extends Component {
                 Saved Drinks
               </Link>
             </li>
-
-            <li className="navbar-item">
-              <Link to="/user" className="nav-link">
-                Create User
-              </Link>
-            </li>
-            <li className="navbar-item">
-              <Link to="/login" className="nav-link" style={{ display: "0px" }}>
-                Login
-              </Link>
-            </li>
+            {!this.props.currentUser && (
+              <>
+                <li className="navbar-item">
+                  <Link to="/user" className="nav-link">
+                    Create User
+                  </Link>
+                </li>
+                <li className="navbar-item">
+                  <Link to="/login" className="nav-link">
+                    Login
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </nav>

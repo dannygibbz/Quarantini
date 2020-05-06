@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { message } from "antd"
 import { withRouter } from "react-router"
 import axios from "axios"
-
 class LoginUsers extends Component {
   constructor(props) {
     super(props)
@@ -11,7 +10,6 @@ class LoginUsers extends Component {
       password: "",
     }
   }
-
   inputEmail = e => {
     this.setState({
       email: e.target.value,
@@ -22,33 +20,29 @@ class LoginUsers extends Component {
       password: e.target.value,
     })
   }
-
   onSubmit = e => {
     e.preventDefault()
-
     const user = {
       email: this.state.email,
       password: this.state.password,
     }
     console.log(user)
-
     axios
-      .post("/auth", user)
+      .post("http://localhost:5000/auth", user)
       .then(res => {
         message.success("Logged In Successfully", 2)
         localStorage.setItem("currentUser", res.data.token)
+        this.props.setCurrentUser(res.data.token)
         this.props.history.push("/welcome")
       })
       .catch(e => {
         message.error("Email and/or password are incorrect. Please retry.")
       })
-
     this.setState({
       email: "",
       password: "",
     })
   }
-
   render() {
     return (
       <div>
@@ -63,7 +57,6 @@ class LoginUsers extends Component {
               value={this.state.email}
               onChange={this.inputEmail}
             />
-
             <label>Password: </label>
             <input
               type="password"
@@ -81,5 +74,4 @@ class LoginUsers extends Component {
     )
   }
 }
-
 export default withRouter(LoginUsers)
