@@ -8,6 +8,11 @@ export default class Navbar extends Component {
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
         <div className="collpase navbar-collapse">
+          <img
+            src={Quarantini}
+            alt="logo"
+            style={{ height: "25px", width: "40px" }}></img>
+
           <Link to="/welcome" className="navbar-brand">
             Quarantini
           </Link>
