@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { message } from "antd"
+import { withRouter } from "react-router"
 import axios from "axios"
 
-export default class CreateUsers extends Component {
+class CreateUsers extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -49,6 +50,7 @@ export default class CreateUsers extends Component {
       .then(res => {
         message.success("User added", 2)
         localStorage.setItem("currentUser", res.data.token)
+        this.props.history.push("/welcome")
       })
       .catch(e => {
         message.error("Can't create user")
@@ -116,3 +118,5 @@ export default class CreateUsers extends Component {
     )
   }
 }
+
+export default withRouter(CreateUsers)
