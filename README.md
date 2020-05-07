@@ -47,9 +47,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Authors
 
-**Daniel Gibbons**
-**Dioris Diaz**
-**Donavan Brown**
+- **Daniel Gibbons**
+- **Dioris Diaz**
+- **Donavan Brown**
 
 ## Acknowledgments
 
