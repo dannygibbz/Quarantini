@@ -23,6 +23,7 @@ export default class EditDrink extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     axios
       .get("/drinks/" + this.props.match.params.id)
       .then(response => {

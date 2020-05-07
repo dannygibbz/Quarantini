@@ -30,7 +30,7 @@ function App() {
         <Route path="/specific" render={() => <SpecificCocktail />} />
         <Route path="/random" render={() => <RandomCocktail />} />
         <Route path="/current" render={() => <CurrentSupply />} />
-        <Route path="/edit/:id" render={() => <EditDrink />} />
+        <Route path="/edit/:id" render={props => <EditDrink {...props} />} />
         <Route path="/create" render={() => <CreateDrink />} />
         <Route path="/user" render={() => <CreateUser />} />
         <Route
