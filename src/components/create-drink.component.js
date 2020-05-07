@@ -68,7 +68,7 @@ class CreateDrink extends Component {
       })
       .then(res => {
         message.success("Drink Successfully Added", 2)
-        this.props.history.push("/")
+        this.props.history.push("/saved")
       })
       .catch(e => {
         message.error("Can't Create Drink")
