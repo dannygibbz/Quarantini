@@ -7,16 +7,10 @@ const variables = require("../variables.json")
 
 const User = require("../Models/user.model")
 
-// @route       GET api/auth
-// @desc        Get logged in user
-// @access      Private
 router.get("/", (req, res) => {
   res.send("Get logged in user")
 })
 
-// @route       POST api/auth
-// @desc        Auth user and get token
-// @access      Public
 router.post(
   "/",
   [
@@ -31,20 +25,18 @@ router.post(
     const { email, password } = req.body
 
     try {
-      // find user with that email
       let user = await User.findOne({ email: email })
-      // if that email does not match with the user send a error message.
+
       if (!user) {
         return res.status(400).json({ msg: "Invaild Credentials" })
       }
-      // if there is a user we want to compare the password and see if it matches.
+
       const isMatch = await bcrypt.compare(password, user.password)
-      // if the user password does not match the one that is in the databbase send back an error message.
+
       if (!isMatch) {
         return res.status(400).json({ msg: "Invalid Password" })
       }
 
-      // if the password matches the users email we return the token
       const payload = {
         user: {
           id: user.id,
