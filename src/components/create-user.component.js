@@ -50,7 +50,7 @@ class CreateUsers extends Component {
       .then(res => {
         message.success("User added", 2)
         localStorage.setItem("currentUser", res.data.token)
-        this.props.history.push("/welcome")
+        this.props.history.push("/")
       })
       .catch(e => {
         message.error("Can't create user")
