@@ -27,7 +27,7 @@ app.use("/auth", authRouter)
 
 app.use(express.static("build"))
 app.get("*", (req, res) => {
-  let myPath = path.join(__dirname, "build", "index.html")
+  let myPath = path.join(__dirname, "../build", "index.html")
   res.sendFile(myPath)
 })
 
