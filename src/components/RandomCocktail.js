@@ -89,8 +89,7 @@ class Random extends Component {
           alt="cocktail"
           style={{ height: "100px", width: "100px" }}></img>
         <p>
-          <b>Ingredients:</b>
-          {measurement1}
+          <b>Ingredients:</b> {measurement1}
           {measurement2 ? ", " + measurement2 : null}
           {measurement3 ? ", " + measurement3 : null}
           {measurement4 ? ", " + measurement4 : null}
